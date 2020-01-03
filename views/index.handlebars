@@ -1,0 +1,66 @@
+<div class="container">
+    <br>
+    <div class="header">
+        <h1 class="title">Nothing Scraper</h1>
+    </div>
+    
+    <div class="main-body">
+        <div class="butt-cont">
+        <button class="butt-update">Check for Updates</button>
+        </div>
+        <table class="table-table">
+            <thead class="table-head">
+                <tr>
+                    <th class="entry-title">Title</th>
+                    <th class="comment-article">Article & Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each articles}}
+                <tr class="table-border">
+                    <th class="entry-title">{{title}}</th>
+                    <td class="cell-alignment">
+                        <a class="button-link" href="{{articleURL}}" target="_blank">READ</a>
+                        <a class=" articleComments button-link" data-id="{{_id}}">COMMENT</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModal" aria-hidden="true">
+    <div role="document">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h3 id="commentHeader"></h3>
+            </div>
+            <div class="modalBody">
+                <table class="table">
+                    <thead class="comment-border">
+                        <th class="name-comment">Name</th>
+                        <th class="title-comment">Comment</th>
+                        <th class="delete-comment">Delete?</th>
+                    </thead>
+                    <tbody id="commentsModalBody">
+                    </tbody>
+                </table>
+                <hr>
+                <form>
+                    <div class="form-group">
+                        <label class="name-comment" for="commentName">Name:</label>
+                        <input type="text" class="form-control" id="nameField" aria-describedby="commentName"
+                            placeholder="Anonymous">
+                    </div>
+                    <div class="form-group">
+                        <label class="title-comment" for="commentBody">Comment:</label>
+                        <input type="text" class="form-control " id="bodyField" aria-describedby="commentBody"
+                            placeholder="I Love CSS...">
+                    </div>
+                    <button type="submit" class="comment-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
