@@ -48,7 +48,7 @@ app.get("/", function(req, res) {
 
 // GET route for website scrape
 app.get("/scrape", function(req, res) {
-  axios.get("https://theblogaboutnothing.blog/page/2/").then(function(response) {
+  axios.get("https://theblogaboutnothing.blog/page/3/").then(function(response) {
     let $ = cheerio.load(response.data);
     // console.log(response.data + "fuck yourself")
     let articles = $(".content-wrapper");
