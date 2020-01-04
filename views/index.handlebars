@@ -3,25 +3,26 @@
     <div class="header">
         <h1 class="title">Nothing Scraper</h1>
     </div>
-    
+
     <div class="main-body">
         <div class="butt-cont">
-        <button class="butt-update">Check for Updates</button>
+            <button class="butt-update">Check for Updates</button>
         </div>
         <table class="table-table">
             <thead class="table-head">
                 <tr>
-                    <th class="entry-title">Title</th>
-                    <th class="comment-article">Article & Comments</th>
+                    <th class="entry-title">Posts</th>
+                    <th class="comment-article">Comments</th>
                 </tr>
             </thead>
             <tbody>
                 {{#each articles}}
                 <tr class="table-border">
-                    <th class="entry-title">{{title}}</th>
+                    <th class="entry-title"><a class="button-link" href="{{articleURL}}" target="_blank">{{title}}</a>
+                    </th>
                     <td class="cell-alignment">
-                        <a class="button-link" href="{{articleURL}}" target="_blank">READ</a>
-                        <a class=" articleComments button-link" data-id="{{_id}}">COMMENT</a>
+                        <a class="comment-view button-link" data-id="{{_id}}">View Comments</a>
+                        <a class="articleComments button-link" data-id="{{_id}}">Leave Comment</a>
                     </td>
                 </tr>
                 {{/each}}
@@ -58,8 +59,37 @@
                         <input type="text" class="form-control " id="bodyField" aria-describedby="commentBody"
                             placeholder="I Love CSS...">
                     </div>
-                    <button type="submit" class="comment-submit">Submit</button>
+                    <div class="butt-dial">
+                        <button type="submit" class="comment-submit">Submit</button>
+                        <button type="submit" class="comment-close">Close</button>
+                    </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-comment-view" tabindex="-1" role="dialog" aria-labelledby="commentModal"
+    aria-hidden="true">
+    <div role="document">
+        <div class="modal-comment-view-content">
+            <div class="modalHeader">
+                <h3 id="modal-comment-view-head"></h3>
+            </div>
+            <div class="modalBody">
+                <table class="table">
+                    <thead class="comment-border">
+                        <th class="name-comment">Name</th>
+                        <th class="title-comment">Comment</th>
+                        <th class="delete-comment">Delete?</th>
+                    </thead>
+                    <tbody id="modal-comment-view-body">
+                    </tbody>
+                </table>
+                <hr>
+                <div class="butt-dial-2">
+                    <button type="reset" class="comment-view-close">Close</button>
+                </div>
             </div>
         </div>
     </div>

@@ -74,6 +74,59 @@ $(document).on("click", ".comment-submit", function() {
     });
 });
 
+// When you click on the comment-view button
+$(document).on("click", ".comment-view", function() {
+  // Capture our article ID
+  let articleID = $(this).attr("data-id");
+  console.log(articleID);
+  // Apply ID to our comment submit button
+  $(".comment-view-close").attr("data-id", articleID);
+
+  // Show the comment view modal
+  $("#modal-comment-view").addClass("show");
+
+  $.ajax({
+    method: "GET",
+    url: "/comments/" + articleID
+  }).then(function(data) {
+    // Set title for modal
+    $("#modal-comment-view-head").text("Comments for " + data.title);
+
+    // Fill with comments
+    if (data.comments) {
+      $("#modal-comment-view-body").empty();
+
+      data.comments.forEach(function(comment) {
+        let newRow = `<tr data-rowid="${comment._id}"><th class="comment-text comment-name">${comment.commentName}</th><td class="comment-text comment-body">${comment.commentBody}</td><td class="comment-text"><button class="delete-button" data-commentid="${comment._id}"><b>X</b></button></td></tr>`;
+
+        $("#modal-comment-view-body").prepend(newRow);
+      });
+    }
+  });
+});
+
+//close the comments view
+$(document).on("click", ".comment-view-close", function() {
+  // $("button.comment-view-close").removeAttr("data-id", articleID);
+  $("#modal-comment-view").removeClass("show");
+});
+
+// When you click the delete button
+$(document).on("click", ".delete-button", function() {
+  // Get the unique comment ID
+  let commentID = $(this).data("commentid");
+
+  $.ajax({
+    method: "DELETE",
+    url: "/comments/" + commentID
+  });
+
+  $(this)
+    .parent()
+    .parent()
+    .remove();
+});
+
 // When you click the update button
 $(document).on("click", ".updateButton", function() {
   $.ajax({
@@ -85,3 +138,4 @@ $(document).on("click", ".updateButton", function() {
     }, 2000);
   });
 });
+

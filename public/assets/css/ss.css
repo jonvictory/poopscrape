@@ -177,7 +177,7 @@ a:hover {
 
 .show {
   display: block;
-  background: white;
+  background: grey;
   visibility: visible !important;
   opacity: 100 !important;
 }
@@ -209,13 +209,23 @@ a:hover {
   box-shadow: 2px 2px 5px #FC0;
   border-radius: 9px;
 }
+#modal-comment-view {
+  background: grey;
+  border: ridge 4px red;
+  box-shadow: 2px 2px 5px #FC0;
+  border-radius: 9px;
+}
 
 #commentHeader {
   text-align: center;
   color: red;
   text-shadow: #FC0 1px 0 10px;
 }
-
+#modal-comment-view-head {
+  text-align: center;
+  color: red;
+  text-shadow: #FC0 1px 0 10px;
+}
 .name-comment {
   text-align: center;
   color: red;
@@ -253,11 +263,18 @@ a:hover {
 .form-group {
   margin: 2%;
 }
-
+.butt-dial {
+  margin-top: 20px;
+}
+.butt-dial-2 {
+  margin-top: 20px;
+  text-align: center;
+}
 .comment-submit {
   background: transparent;
   color: red;
   text-shadow: #FC0 1px 0 10px;
+  font-size: 21px;
   border: outset darkgrey 5px;
   border-radius: 9px;
   margin: 2%;
@@ -265,6 +282,42 @@ a:hover {
 }
 
 .comment-submit:hover {
+  background: red;
+  color: #fc0;
+}
+.form-group {
+  margin: 2%;
+}
+
+.comment-close {
+  background: transparent;
+  color: red;
+  text-shadow: #FC0 1px 0 10px;
+  font-size: 21px;
+  border: outset darkgrey 5px;
+  border-radius: 9px;
+  margin: 2%;
+  padding: 2px 4px 2px 4px;
+  float: right;
+}
+
+.comment-close:hover {
+  background: red;
+  color: #fc0;
+}
+
+.comment-view-close {
+  background: transparent;
+  color: red;
+  text-shadow: #FC0 1px 0 10px;
+  font-size: 21px;
+  border: outset darkgrey 5px;
+  border-radius: 9px;
+  margin: 2%;
+  padding: 2px 4px 2px 4px;
+}
+
+.comment-view-close:hover {
   background: red;
   color: #fc0;
 }
