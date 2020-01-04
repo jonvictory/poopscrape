@@ -12,6 +12,7 @@
             <thead class="table-head">
                 <tr>
                     <th class="entry-title">Posts</th>
+                    <th class="comment-article">Summary</th>
                     <th class="comment-article">Comments</th>
                 </tr>
             </thead>
@@ -20,6 +21,7 @@
                 <tr class="table-border">
                     <th class="entry-title"><a class="button-link" href="{{articleURL}}" target="_blank">{{title}}</a>
                     </th>
+                    <td class="post-summary cell-alignment">{{summary}}</td>
                     <td class="cell-alignment">
                         <a class="comment-view button-link" data-id="{{_id}}">View Comments</a>
                         <a class="articleComments button-link" data-id="{{_id}}">Leave Comment</a>

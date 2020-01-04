@@ -26,7 +26,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to our Database via Mongoose
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/puck_db";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/pluck_db";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
@@ -51,7 +51,7 @@ app.get("/scrape", function(req, res) {
   axios.get("https://theblogaboutnothing.blog/").then(function(response) {
     let $ = cheerio.load(response.data);
     // console.log(response.data + "fuck yourself")
-    let articles = $(".entry-header");
+    let articles = $(".content-wrapper");
 
     $(articles).each(function(i, element) {
       // Scrape Required Information
@@ -60,6 +60,12 @@ app.get("/scrape", function(req, res) {
       result.title = $(this)
         .find(".entry-title")
         .text();
+
+        result.summary = $(this)
+        .find(".entry-content")
+        .find("p")
+        .text().split('.')[0];
+        
 
       result.articleURL = $(this)
         .find(".entry-title")

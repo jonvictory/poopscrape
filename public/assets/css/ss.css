@@ -113,6 +113,11 @@ a:hover {
 .cell-alignment {
   text-align: center;
 }
+.post-summary {
+  color: red;
+  text-shadow: #FC0 1px 0 10px;
+  font-size: 15px;
+}
 
 .table-head {
   border-bottom: ridge 3px red;

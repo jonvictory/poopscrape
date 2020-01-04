@@ -76,10 +76,10 @@ $(document).on("click", ".comment-submit", function() {
 
 // When you click on the comment-view button
 $(document).on("click", ".comment-view", function() {
-  // Capture our article ID
+  // Capture article ID
   let articleID = $(this).attr("data-id");
   console.log(articleID);
-  // Apply ID to our comment submit button
+  // Apply ID to close button
   $(".comment-view-close").attr("data-id", articleID);
 
   // Show the comment view modal
@@ -128,7 +128,7 @@ $(document).on("click", ".delete-button", function() {
 });
 
 // When you click the update button
-$(document).on("click", ".updateButton", function() {
+$(document).on("click", ".butt-update", function() {
   $.ajax({
     method: "GET",
     url: "/scrape"
@@ -138,4 +138,3 @@ $(document).on("click", ".updateButton", function() {
     }, 2000);
   });
 });
-
