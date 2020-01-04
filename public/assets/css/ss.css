@@ -167,6 +167,8 @@ a:hover {
   right: 0;
   bottom: 0;
   display: flex;
+  flex-direction: column;
+  /* min-height: 400px; */
   align-items: center;
   justify-content: center;
   padding: 1rem;
@@ -176,7 +178,7 @@ a:hover {
   opacity: 0;
   transition: all 0.35s ease-in;
   width: 600px;
-  height: 400px;
+  /* height: 400px; */
   margin: auto;
 }
 
@@ -269,10 +271,10 @@ a:hover {
   margin: 2%;
 }
 .butt-dial {
-  margin-top: 20px;
+  padding-top: 10px;
 }
 .butt-dial-2 {
-  margin-top: 20px;
+  padding-top: 10px;
   text-align: center;
 }
 .comment-submit {
